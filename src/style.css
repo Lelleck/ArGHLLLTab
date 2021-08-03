@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.sectionTitle {
+    font-weight: bolder;
+    margin-bottom: 20px;
+    font-size: 23px;
+    margin: 0px 0px 10px 0px;
+}
+
+.section {
+    float: left;
+    margin: 0px 13px 0px 13px;
+}
+
+.subSection {
+    margin-bottom: 10px;
+}
+
+.points {
+}
+
+.line {
+    font-size: 16.5px;
+}
+
+.innerLinesContainer {
+    /* float: left; */
+}
+
+.innerLine {
+    display: inline;
+    border-left: 5px black solid;
+    margin: 0px 0px 0px 6px;
+    padding: 0px 0px 0px 10px;
+    /* text-align: center; */
+}
+
+.distanceContainer {
+    margin: 0px;
+    padding: 0px;
+    /* float: left;
+    margin-right: 5px;
+    vertical-align: middle; */
+}
+
+.pointsContainer {
+}
+
+footer {
+    position: fixed;
+    bottom: 5px;
+    right: 5px;
+
+    font-size: 20px;
+    font-weight: bold;
+    color: gray;
+}
+
+/* ---- COLORS ---- */
+
+.color-0 {
+
+}
+
+.color-0-0 {
+    color: rgb(236, 65, 65);
+}
+
+.color-0-1 {
+    color: rgb(94, 94, 226);
+}
+
+.color-1 {
+
+}
+
+.color-1-0 {
+
+}
+
+.color-1-1 {
+    color: gray;
+}
+
+/* ---- STYLING ---- */
+
+.fromDistance {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.toDistance {
+
+}
+
+.startMIL {
+    font-weight: bold;
+}
+
+.endMIL {
+
+}
