@@ -9,43 +9,11 @@
 const html = String.raw;
 
 const pointTemplate = (amount, color) => html`<span class="${color} points">${"⬤".repeat(amount)}</span>`;
-
-const innerLineTemplate = (startMIL, endMIL, points, color) => html`<div class="${color} innerLine">
-    <span class="startMIL">${startMIL}</span> 
-    <span class="pointsContainer">${points.join("")}</span> 
-    <span class="endMIL">${endMIL}</span>
-</div>`;
-
-/*
-const lineTemplate = (fromDistance, toDistance, lines) => html`<div class="line">
-    <div class="distanceContainer">
-        <span class="fromDistance">${fromDistance}</span> - <span class="toDistance">${toDistance}</span> 
-    </div>
-    <div class="innerLinesContainer">
-        ${lines.join("")}
-    </div>
-</div>`;
-*/
-
-const lineTemplate = (fromDistance, toDistance, lines) => html`<div class="line">
-    <span class="distanceContainer">
-        <span class="fromDistance">${fromDistance}</span> - <span class="toDistance">${toDistance}</span></span><span class="innerLinesContainer">
-        ${lines.join("")}
-    </span>
-</div>`;
-
-const subSectionTemplate = (lines) => html`<div class="subSection">
-${lines.join("")}
-</div>`;
-
-const sectionTemplate = (title, subsection) => html`<div class="section">
-    <h3 class="sectionTitle">${title}</h3>
-    ${subsection.join("")}
-</div>`;
-
-const pageTemplate = (sections) => html`<div class="page">
-    ${sections.join("")}
-</div>`;
+const innerLineTemplate = (startMIL, endMIL, points, color) => html`<div class="${color} innerLine"><span class="startMIL">${startMIL}</span><span class="pointsContainer">${points.join("")}</span><span class="endMIL">${endMIL}</span></div>`;
+const lineTemplate = (fromDistance, toDistance, lines) => html`<div class="line"><span class="distanceContainer"><span class="fromDistance">${fromDistance}</span> - <span class="toDistance">${toDistance}</span></span><span class="innerLinesContainer">${lines.join("")}</span></div>`;
+const subSectionTemplate = (lines) => html`<div class="subSection">${lines.join("")}</div>`;
+const sectionTemplate = (title, subsection) => html`<div class="section"><h3 class="sectionTitle">${title}</h3>${subsection.join("")}</div>`;
+const pageTemplate = (sections) => html`<div class="page">${sections.join("")}</div>`;
 
 // #################################
 //
@@ -75,6 +43,10 @@ function calculate(distance, constants) {
     return Math.round(constants.x * distance + constants.y);
 }
 
+/**
+ * 
+ * @returns 
+ */
 function generateData() {
     var subSectionSize = settings.sectionSize / settings.subSections;
     var data = {};
@@ -127,7 +99,7 @@ function generateData() {
                 lines.push({
                     start: start,
                     end: end,
-                    values: constants
+                    constants: constants
                 });
             }
             subSections.push(lines);
@@ -166,9 +138,9 @@ function buildLine(line) {
     var points = [];
     var number = 0;
 
-    for (var constant in line.values) {
+    for (var constant in line.constants) {
         points.push(
-            buildInnerLine(line.values[constant], number++)
+            buildInnerLine(line.constants[constant], number++)
         );
     }
 
@@ -248,5 +220,6 @@ var settings = {
     lineSize: 5,
     lineShift: -1,
 
+    // not tested
     pointSize: 1
 };
